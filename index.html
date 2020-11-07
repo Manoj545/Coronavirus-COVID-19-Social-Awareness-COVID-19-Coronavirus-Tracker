@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>COVID-19 Coronavirus Tracker </title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/core-img/favicon.png">
+
+    <!-- These plugins only need for the run this page -->
+    <link href="assets/css/jqvmap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/default-assets/jquery.jConveyorTicker.min.css">
+    <link href="assets/css/datatables.min.css" rel="stylesheet" />
+    <link href="assets/css/select2.min.css" rel="stylesheet" />
+
+    <!-- Master Stylesheet [If you remove this CSS file, your file will be broken undoubtedly.] -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- ======================================
+    ******* Page Wrapper Area Start **********
+    ======================================= -->
+    <div class="ecaps-page-wrapper">
+        <!-- Sidemenu Area -->
+        <div class="ecaps-sidemenu-area">
+            <!-- Desktop Logo -->
+            <div class="ecaps-logo">
+                <a href="index.html"><img class="desktop-logo" src="img/core-img/small-logo.png" alt="Desktop Logo"> <img class="small-logo" src="img/core-img/small-logo.png" alt="Mobile Logo"></a>
+            </div>
+
+            <!-- Side Nav -->
+            <div class="ecaps-sidenav" id="ecapsSideNav">
+                <!-- Side Menu Area -->
+                <div class="side-menu-area">
+                    <!-- Sidebar Menu -->
+                    <nav>
+                        <ul class="sidebar-menu" data-widget="tree">
+                            <li class="active"><a href="index.html"><i class='bx bx-home-heart'></i><span>Dashboard</span></a></li>
+                            <li><a href="out-break.html"><i class='bx bx-world'></i><span>Out Break</span></a></li>
+                            
+							 <li class="treeview">
+                                <a href="javascript:void(0)"><i class='bx bx-bar-chart-square'></i><span>Symptoms</span> <i class="fa fa-angle-right"></i></a>
+                                <ul class="treeview-menu">
+                                    <li><a href="#"></a></li>
+                                    <li><a href="bp.html"> High blood pressure (hypertension)</a></li>
+                                    <li><a href="sugar.html">Diabetes </a></li>
+                                    <li><a href="heart_failure.html">Heart failure</a></li>
+                                    <li><a href="TB.html">Tuberculosis</a></li>
+                                    <li><a href="malaria.html">Malaria</a></li>
+                                    <li><a href="typhoid.html">Typhoid fever</a></li>
+									<li><a href="jaundice.html">Jaundice</a></li>
+									<li><a href="lung_cancer.html">Lung cancer</a></li>
+									<li><a href="cold.html">Common cold</a></li>
+									<li><a href="pneumonia.html">Pneumonia</a></li>
+                               
+                                </ul>
+                            </li>
+							<li><a href="contact.html"><i class='bx bx-map'!></i><span>Contact Us</span></a></li>
+							
+
+                           
+
+                            
+                            
+							
+                            
+							
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page Content -->
+        <div class="ecaps-page-content">
+            <!-- Top Header Area -->
+            <header class="top-header-area d-flex align-items-center justify-content-between">
+                <div class="left-side-content-area d-flex align-items-center">
+                    <!-- Mobile Logo -->
+                    <div class="mobile-logo mr-3 mr-sm-4">
+                        <a href="index.html"><img src="img/core-img/small-logo.png" alt="Mobile Logo"></a>
+                    </div>
+
+                    <!-- Triggers -->
+                    <div class="ecaps-triggers mr-1 mr-sm-3">
+                        <div class="menu-collasped" id="menuCollasped">
+                            <i class='bx bx-menu'></i>
+                        </div>
+                        <div class="mobile-menu-open" id="mobileMenuOpen">
+                            <i class='bx bx-menu'></i>
+                        </div>
+                    </div>
+
+                    <!-- Left Side Nav -->
+                    <ul class="#">
+                        
+                                                       
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="right-side-navbar d-flex align-items-center justify-content-end">
+                    <div class="dashboard-infor-mation d-flex flex-wrap align-items-center">
+                        <h6 class="mb-0 mr-2 font-14">Date: </h6>
+                        <div class="dashboard-clock">
+                            <div class="font-13 text-primary" id="dashboardDate"></div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Content Area -->
+            <div class="main-content">
+                <div class="dashboard-area">
+                    <div class="container-fluid">
+                        <div class="row align-items-center mb-30">
+                            <div class="col-12">
+                                <div class="page-title-box- mb-1 d-flex align-items-center justify-content-between">
+                                    <h4 class="mb-2 font-20">COVID-19 Coronavirus Tracker</h4>
+                                </div>
+                                <div class="dashboard-infor-mation">
+                                    <div class="dashboard-clock d-flex flex-wrap align-items-center">
+                                        <div id="dashboardDate"></div><span class="ml-1"><p style="font-size:30px;color:black;"> Time: </p></span>
+                                        <ul class="d-flex align-items-center justify-content-end ml-2">
+                                            <p style="font-size:30px" id="hours"></p>
+                                            <div id="dashboardDate"></div><span class="ml-1"><p style="font-size:30px"> : </p></span>
+                                            <p style="font-size:30px" id="min"></p>
+                                            <div id="dashboardDate"></div><span class="ml-1"><p style="font-size:30px"> : </p></span>
+                                            <p style="font-size:30px" id="sec"></p>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="currency-marquee-area js-conveyor-1 mb-30">
+                                    <ul class="bg-gradient-dark">
+                                        <li>"Ultimately, the greatest lesson that COVID-19 can teach humanity is that we are all in this together."</li>
+										<li>-Kiran Mazumdar-Shaw</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+                        <div class="row">
+                            <div class="col-lg-7 box-margin">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="country-map">
+                                            <div class="box-header">
+                                                <h5 class="card-title">Cases by Country</h5>
+                                            </div>
+
+                                            <div class="map--body">
+                                                <div class="map-status-wrap" id="map-status-report">
+                                                    <div class="map-status" id="map-status"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Category -->
+                            <div class="col-lg-5">
+                                <div class="row worldwide-stats">
+                                    <div class="col-md-6">
+                                        <div class="card mb-30 bg-primary">
+                                            <div class="card-body">
+                                                <div class="tracker-block__icon">
+                                                    <img src="img/bg-img/1.png" alt="icon" />
+                                                </div>
+                                                <div class="corona-count-content">
+                                                    <h4 class="text-white">Coronavirus Cases</h4>
+                                                    <h2 class="text-white"><span class="cases-no infected">0,000,000</span>
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="card mb-30 bg-success">
+                                            <div class="card-body">
+                                                <div class="tracker-block__icon">
+                                                    <img src="img/bg-img/4.png" alt="icon" />
+                                                </div>
+                                                <div class="corona-count-content">
+                                                    <h4 class="text-white">Total Recovered</h4>
+                                                    <h2 class="text-white"><span class="cases-no recovered">0,000,000</span>
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="card mb-30 bg-danger">
+                                            <div class="card-body">
+                                                <div class="tracker-block__icon">
+                                                    <img src="img/bg-img/2.png" alt="icon" />
+                                                </div>
+                                                <div class="corona-count-content">
+                                                    <h4 class="text-white">Total Death</h4>
+                                                    <h2 class="text-white"><span class="cases-no deaths">0,000,000</span>
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="card mb-30 bg-warning">
+                                            <div class="card-body">
+                                                <div class="tracker-block__icon">
+                                                    <img src="img/bg-img/3.png" alt="icon" />
+                                                </div>
+                                                <div class="corona-count-content">
+                                                    <h4 class="text-white">Active Cases</h4>
+                                                    <h2 class="text-white"><span class="cases-no current_cases">0,000,000</span></h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                           
+
+                   
+
+                      <div class="row">
+                            <div class="col-12">
+                                <div class="card box-margin">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Coronavirus Outbreak</h4>
+                                        <div class="list-view table-responsive" id="list-view">
+                                            <table class="list-view__table display table">
+                                                <thead class="list-view__head">
+                                                    <tr>
+                                                        <th>Region</th>
+                                                        <th>Total Cases</th>
+                                                        <th>New Cases</th>
+                                                        <th>Total Deaths</th>
+                                                        <th>Deaths %</th>
+                                                        <th>New Deaths</th>
+                                                        <th>Total Recovered</th>
+                                                        <th>Recovered %</th>
+                                                        <th>Active Cases</th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody class="list-view__body"></tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                      
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card mb-30">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <h4 class="card-title">Combination of Corona Virus with Different Disease</h4>
+                                            </div>
+
+                                            <div class="col-md-6 col-lg-3">
+                                                <div class="single-blog--area mb-20">
+                                                    <div class="thumb">
+                                                        <img src="img/bg-img/bp.jpg" alt="">
+                                                    </div>
+                                                    <div class="text-content">
+                                                        <h5><a href="#" target="_blank">What are the Symptoms of Corona with  High blood pressure (hypertension)?</a></h5>
+                                                        <p class="mb-0">•	Also called: HBP, hypertension</p>
+                                                        <p class="mb-0">•	Requires a medical diagnosis.</p>
+                                                        <p class="mb-0">•	High blood pressure often has no symptoms. Over time, if untreated, it can cause health conditions, such as heart disease and stroke.</p>
+                                                        <p class="mb-0">•	This medical condition typically has no symptoms.</p>
+                                                        <p class="mb-0">•	In some cases, people with high blood pressure may have a pounding feeling in their head or chest, a feeling of lightheadedness or dizziness, or other signs. Without symptoms, people with high blood pressure may go years without knowing they have the condition.</p>
+                                                        <p class="mb-0">•	Treatment consists of self care and diuretics</p>
+                                                        <p class="mb-0">•	Eating a healthier diet with less salt, exercising regularly and taking medication can help lower blood pressure.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-lg-3">
+                                                <div class="single-blog--area mb-20">
+                                                    <div class="thumb">
+                                                        <img src="img/bg-img/sugar.jpg" alt="">
+                                                    </div>
+                                                    <div class="text-content">
+                                                        <h5><a href="#" target="_blank">What are the Symptoms of Corona with Diabetes?</a></h5>
+                                                        <p class="mb-0">•	Urinating often.</p>
+<p class="mb-0">•	Feeling very thirsty.</p>
+<p class="mb-0">•	Feeling very hungry—even though you are eating.</p>
+<p class="mb-0">•	Extreme fatigue.</p>
+<p class="mb-0">•	Blurry vision.</p>
+<p class="mb-0">•	Cuts/bruises that are slow to heal.</p>
+<p class="mb-0">•	Weight loss—even though you are eating more (type 1).</p>
+<p class="mb-0">•	Tingling, pain, or numbness in the hands/feet (type 2).</p>
+<p class="mb-0">•	Controlling blood sugar through diet, oral medication or insulin is the main treatment. Regular screening for complications is also required.</p>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-lg-3">
+                                                <div class="single-blog--area mb-20">
+                                                    <div class="thumb">
+                                                        <img src="img/bg-img/Heart-attack.jpg" alt="">
+                                                    </div>
+                                                    <div class="text-content">
+                                                        <h5><a href="#" target="_blank">What are the Symptoms of Corona with Heart failure?</a></h5>
+                                                        <p class="mb-0">•	Requires a medical diagnosis.</p>
+<p class="mb-0">•	Symptoms include shortness of breath, fatigue, swollen legs and rapid heartbeat.</p>
+<p class="mb-0">•	Pain areas: in the chest.</p>
+<p class="mb-0">•	Cough: can be dry or with phlegm.</p>
+<p class="mb-0">•	Whole body: dizziness, fatigue, inability to exercise, or loss of appetite.</p>
+<p class="mb-0">•	Respiratory: fast breathing, shortness of breath at night, shortness of breath on exercise, or shortness of breath on lying down.</p>
+<p class="mb-0">•	Gastrointestinal: water retention or bloating.</p>
+<p class="mb-0">•	Also common: excess urination at night, palpitations, swollen feet, swollen legs, or weight gain.</p>
+<p class="mb-0">•	Treatment depends on severity.</p>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-lg-3">
+                                                <div class="single-blog--area mb-20">
+                                                    <div class="thumb">
+                                                        <img src="img/bg-img/TB01.jpg" alt="">
+                                                    </div>
+                                                    <div class="text-content">
+                                                        <h5><a href="#" target="_blank">What are the Symptoms of Corona with Tuberculosis?</a></h5>
+                                                        <p class="mb-0">•	A potentially serious infectious bacterial disease that mainly affects the lungs.</p>
+ <p class="mb-0">•	The bacteria that cause TB are spread when an infected person coughs or sneezes.</p>
+ <p class="mb-0">•	Most people infected with the bacteria that cause tuberculosis don't have symptoms. When symptoms do occur, they usually include a cough (sometimes blood-tinged), weight loss, night sweats and fever.</p>
+ <p class="mb-0">•	Treatment isn't always required for those without symptoms. Patients with active symptoms will require a long course of treatment involving multiple antibiotics.</p>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                       
+									   <div class="col-md-6 col-lg-3">
+                                                <div class="single-blog--area mb-20">
+                                                    <div class="thumb">
+                                                        <img src="img/bg-img/Malaria.jpg" alt="">
+                                                    </div>
+                                                    <div class="text-content">
+                                                        <h5><a href="#" target="_blank">What are the Symptoms of Corona with Malaria?</a></h5>
+                                                        <p class="mb-0">•	A disease caused by a plasmodium parasite, transmitted by the bite of infected mosquitoes.</p>
+<p class="mb-0">•	The severity of malaria varies based on the species of plasmodium.</p>
+<p class="mb-0">•	Symptoms are chills, fever and sweating, usually occurring a few weeks after being bitten.</p>
+<p class="mb-0">•	People travelling to areas where malaria is common typically take protective drugs before, during and after their trip. Treatment includes antimalarial drugs.</p>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+											
+											<div class="col-md-6 col-lg-3">
+                                                <div class="single-blog--area mb-20">
+                                                    <div class="thumb">
+                                                        <img src="img/bg-img/typhoid_fever.jpg" alt="">
+                                                    </div>
+                                                    <div class="text-content">
+                                                        <h5><a href="#" target="_blank">What are the Symptoms of Corona with Typhoid fever?</a></h5>
+                                                        <p class="mb-0">•	Requires a medical diagnosis.</p>
+<p class="mb-0">•	Symptoms include high fever, headache, stomach pain, weakness, vomiting and loose stools.</p>
+<p class="mb-0">•	People may experience:</p>
+<p class="mb-0">•	Pain areas: in the abdomen or muscles.</p>
+<p class="mb-0">•	Gastrointestinal: bloating, constipation, diarrhoea, nausea, or vomiting.</p>
+<p class="mb-0">•	Whole body: fatigue, fever, chills, loss of appetite, or malaise.</p>
+<p class="mb-0">•	Also common: headache, muscle weakness, rash with small red dots, skin rash, or weight loss.</p>
+<p class="mb-0">•	Treatment includes antibiotics and fluids.</p>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+											
+											<div class="col-md-6 col-lg-3">
+                                                <div class="single-blog--area mb-20">
+                                                    <div class="thumb">
+                                                        <img src="img/bg-img/Jaundice.jpg" alt="">
+                                                    </div>
+                                                    <div class="text-content">
+                                                        <h5><a href="#" target="_blank">What are the Symptoms of Corona with Jaundice?</a></h5>
+                                                        <p class="mb-0">•	Yellow skin caused by the build-up of bilirubin in the blood.</p>
+<p class="mb-0">•	Jaundice may occur if the liver can't efficiently process red blood cells as they break down. It's normal in healthy newborns and usually clears on its own. At other ages, it may signal infection or liver disease.</p>
+<p class="mb-0">•	Symptoms include yellowing of the skin and whites of the eyes.</p>
+<p class="mb-0">•	Some newborns may require light therapy for a day or so. In other cases, treatment involves addressing the underlying cause.</p>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+											
+											<div class="col-md-6 col-lg-3">
+                                                <div class="single-blog--area mb-20">
+                                                    <div class="thumb">
+                                                        <img src="img/bg-img/lung_cancer.jpg" alt="">
+                                                    </div>
+                                                    <div class="text-content">
+                                                        <h5><a href="#" target="_blank">What are the Symptoms of Corona with Lung cancer?</a></h5>
+                                                        <p class="mb-0">•	A cancer that begins in the lungs and most often occurs in people who smoke.</p>
+<p class="mb-0">•	Two major types of lung cancer are non-small cell lung cancer and small cell lung cancer. Causes of lung cancer include smoking, second-hand smoke, exposure to certain toxins and family history.</p>
+<p class="mb-0">•	Symptoms include a cough (often with blood), chest pain, wheezing and weight loss. These symptoms often don't appear until the cancer is advanced.</p>
+<p class="mb-0">•	Treatments vary but may include surgery, chemotherapy, radiation therapy, targeted drug therapy and immunotherapy.</p>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+											
+											<div class="col-md-6 col-lg-3">
+                                                <div class="single-blog--area mb-20">
+                                                    <div class="thumb">
+                                                        <img src="img/bg-img/common_cold.jpg" alt="">
+                                                    </div>
+                                                    <div class="text-content">
+                                                        <h5><a href="#" target="_blank">What are the Symptoms of Corona with Common cold?</a></h5>
+                                                        <p class="mb-0">•	A common viral infection of the nose and throat.</p>
+<p class="mb-0">•	In contrast to the flu, a common cold can be caused by many different types of viruses. The condition is generally harmless and symptoms usually resolve within two weeks.</p>
+<p class="mb-0">•	Symptoms include a runny nose, sneezing and congestion. High fever or severe symptoms are reasons to see a doctor, especially in children.</p>
+<p class="mb-0">•	Most people recover on their own within two weeks. Over-the-counter products and home remedies can help control symptoms.</p>
+<p class="mb-0">•	Treatment consists of anti-inflammatories and decongestants.</p>
+<p class="mb-0">•	Over-the-counter products and home remedies can help control symptoms.</p>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+											
+											<div class="col-md-6 col-lg-3">
+                                                <div class="single-blog--area mb-20">
+                                                    <div class="thumb">
+                                                        <img src="img/bg-img/Pneumonia.jpg" alt="">
+                                                    </div>
+                                                    <div class="text-content">
+                                                        <h5><a href="#" target="_blank">What are the Symptoms of Corona with Pneumonia?</a></h5>
+                                                        <p class="mb-0">•	Infection that inflames air sacs in one or both lungs, which may fill with fluid.</p>
+<p class="mb-0">•	With pneumonia, the air sacs may fill with fluid or pus. The infection can be life-threatening to anyone, but particularly to infants, children and people over 65.</p>
+<p class="mb-0">•	Symptoms include a cough with phlegm or pus, fever, chills and difficulty breathing.</p>
+<p class="mb-0">•	Antibiotics can treat many forms of pneumonia. Some forms of pneumonia can be prevented by vaccines.</p>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+									   
+									   </div>
+												
+									</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer Area -->
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <!-- Footer Area -->
+                            <footer class="footer-area d-sm-flex justify-content-center align-items-center justify-content-between">
+                                <!-- Copywrite Text -->
+                                <div class="copywrite-text">
+                                    <p class="font-13">Developed by @<a href="#">CSE_5516.</a></p>
+                                </div>
+                                <div class="fotter-icon text-center">
+                                    <p class="mb-0 font-13">2020 @ Corona live tracker. </p>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======================================
+    ********* Page Wrapper Area End ***********
+    ======================================= -->
+
+    <!-- Must needed  to the run -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bundle.js"></script>
+    <script src="js/default-assets/setting.js"></script>
+    <script src="js/default-assets/date-time.js"></script>
+
+    <!-- Active JS -->
+    <script src="js/default-assets/active.js"></script>
+
+    <!-- These  only need for the run this page -->
+    <script src="js/default-assets/apexchart.min.js"></script>
+    <script src="js/default-assets/dashboard-active.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/default-assets/widget-page-chart-active.js"></script>
+    <script src="js/default-assets/jquery.jConveyorTicker.min.js"></script>
+    <script src="assets/js/select2.full.min.js"></script>
+    <script src="assets/js/datatables.min.js"></script>
+    <script src="assets/js/jquery.vmap.min.js"></script>
+    <script src="assets/js/jquery.vmap.world.js"></script>
+
+    <!--=== APP Js ===-->
+    <script src="assets/js/app.js"></script>
+    <!--=== Active Js ===-->
+    <script src="assets/js/active.js"></script>
+
+    <script>
+        $(function() {
+            $('.js-conveyor-1').jConveyorTicker();
+        });
+    </script>
+	
+	<!-- callButton widget -->
+<script type="text/javascript">
+    (function () {
+        var options = {
+            whatsapp: "+91 78924 98581", // WhatsApp number
+            call: "+91 78924 98581", // Call phone number
+            call_to_action: "Message us", // Call to action
+            button_color: "#129BF4", // Color of button
+            position: "left", // Position may be 'right' or 'left'
+            order: "whatsapp,call", // Order of buttons
+        };
+        var proto = document.location.protocol, host = "getbutton.io", url = proto + "//static." + host;
+        var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
+        s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
+        var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+    })();
+</script>
+<!-- /calltButton widget -->
+</body>
+</html>
